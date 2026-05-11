@@ -6,24 +6,38 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
 @Entity
-@Table(name = "User")
+@Table(name = "users")
 public class User {
 	
 		@Id
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		private int userId;
 		
+		@NotBlank(message = "Username is required")
 		@Column(nullable = false, unique = true)
 		private String userName;
+		
+		@NotBlank(message = "Password is required") 
+		
+		@Pattern(
+		        regexp = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@#$%^&+=]).{8,}$",
+		        message = "Password must contain uppercase, lowercase, number and special character"
+		    ) 
 		
 		@Column(nullable = false)
 		private String password;
 		
+		@NotBlank(message = "Email is required")
+		@Email(message = "Invalid email format")
 		@Column(nullable = false,unique = true)
 		private String email;
 		
+		@NotBlank(message = "Name is required")
 		private String name;
 		
 		private int age;
@@ -86,6 +100,7 @@ public class User {
 		
 
 	}
+
 
 
 

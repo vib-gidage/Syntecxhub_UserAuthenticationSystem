@@ -21,13 +21,7 @@ public class UserController {
 	
 	@Autowired
 	private UserService userservice;
-	
-	@PostMapping("/register")
-	public String registerUser(@RequestBody List<User> users) {
-	    userservice.registerUser(users);
-	    return "Users registered successfully.";
-	}
-	
+		
 	@GetMapping("/get-all")
 	public List<User> getAllUsers() {
 	    return userservice.getAllUsers();
