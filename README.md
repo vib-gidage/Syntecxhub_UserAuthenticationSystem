@@ -47,6 +47,6 @@ UserOperationsManagement is a Spring Boot backend project for managing user data
 - Refresh Token Authentication
 - Frontend Integration
 
-# Author
+# 🎓Author
 
 Vaibhavi Gidage.
